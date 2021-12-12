@@ -115,18 +115,7 @@ def save_note():
 		update()
 		get_note_info()
 
-def edit_note():
-	note_name, ok = QInputDialog.getText(main_win, "Изменить заметку", "Новое название заметки: ")
-	if notes_list.selectedItems():
-		key = notes_list.selectedItems()[0].text()
-		if ok and note_name != "":
-			notes[note_name] = notes[key]
-			del notes[key]
-			notes_list.clear()
-			tags_list.clear()
-			notes_list.addItems(notes)
-			tags_list.addItems(notes[note_name]["tags"])
-		update()
+
 	
 
 notes_list_remove_button.clicked.connect(del_note)
